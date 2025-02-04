@@ -1,7 +1,5 @@
 import { ethers } from "hardhat";
 
-import { randomBytes } from 'crypto';
-
 async function main() {
   const substrateAddr = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
 
@@ -9,11 +7,6 @@ async function main() {
   const contract = await ethers.getContractAt('Substrate', substrateAddr, signer);
   const tx = await contract.createSubstrate();
   await tx.wait();
-
-  try {
-  } catch (error) {
-    console.log(error);
-  }
   console.log(`Sign successful`)
 }
 
