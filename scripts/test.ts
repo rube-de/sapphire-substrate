@@ -8,7 +8,6 @@ async function main() {
   const signer = (await ethers.getSigners())[0];
   const contract = await ethers.getContractAt('Substrate', substrateAddr, signer);
   const tx = await contract.createSubstrate();
-  // const tx = await contract.createSubstrate(6, randomBytes(32));
   await tx.wait();
 
   try {
