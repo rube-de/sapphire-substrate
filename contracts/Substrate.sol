@@ -24,11 +24,16 @@ contract Substrate {
             randSeed
         );
 
+        // (bytes memory pk, bytes memory sk) = Sapphire.generateSigningKeyPair(
+        //     Sapphire.SigningAlg.Sr25519,
+        //     randSeed
+        // );
+
         substrate_pk = bytes32(pk);
         substrate_pk_bytes = pk;
 
-        // substrate_sk = bytes32(sk);
-        substrate_sk = bytes32(randSeed);
+        substrate_sk = bytes32(sk);
+        // substrate_sk = bytes32(randSeed);
         // substrate_sk_bytes = sk;
         substrate_sk_bytes = randSeed;
 
@@ -39,7 +44,7 @@ contract Substrate {
         // Sign data
         bytes memory signature = Sapphire.sign(
             Sapphire.SigningAlg.Sr25519,
-            abi.encodePacked(substrate_sk),
+            abi.encodePacked(sk),
             abi.encodePacked(bytes32(0)),
             ""
         );
